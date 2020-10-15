@@ -1,0 +1,22 @@
+{
+  "name": "API-2.10.20",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.20.0",
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "webpack.config.js",
+  "description": ""
+}
