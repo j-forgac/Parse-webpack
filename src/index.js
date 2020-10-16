@@ -1,5 +1,23 @@
 import {generateArticle} from "./components";
 
+const axios = require('axios');
+
+function runAxious () {
+    console.log("axious");
+    axios.get('http://newsapi.org/v2/everything?q=bitcoin&from=2020-09-16&sortBy=publishedAt&apiKey=3b14d1d758fd4b3daf7a06628c65b704')
+        .then((res) => {
+            console.log("axious.then");
+            const data = res.data;
+            for (let value of data.articles) {
+                console.log(value.author);
+            }
+        })
+        .catch((reason) => {
+            console.log("axious.catch -*- reason:");
+            console.log(reason);
+        });
+}
+
 const articles = [
     {
         title: "Článek 1",
@@ -44,9 +62,12 @@ const articles = [
 ];
 
 window.onload = function () {
-    for(let x =0; x < articles.length; x++){
+    runAxious();
+    console.log("clanky vypis");
+    for (let x = 0; x < articles.length; x++) {
         generateArticle(articles[x].title, articles[x].description);
     }
 }
+
 
 
