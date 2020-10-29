@@ -1,0 +1,57 @@
+.menu {
+  margin: 0 0 100px 0;
+  padding: 20px;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  background: red;
+  font-weight: bold;
+}
+
+.container {
+  color: black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+}
+
+#articles1 {
+  color: black;
+}
+
+.row {
+  overflow-y: hidden;
+  width: 1100px;
+  display: flex;
+  flex-direction: row;
+  margin: 50px 20px 20px 0;
+  height: 150px;
+  align-items: center;
+  border: 1px solid #dee2e7;
+  border-radius: 1px;
+  &:hover {
+    background-color: #f2f2f6;
+  }
+
+}
+
+img {
+  display: block;
+  max-width: 192px;
+  max-height: 108px;
+  width: auto;
+  height: auto;
+}
+
+h2 {
+  margin: 0 0 10px 0;
+}
+
+.texts {
+  margin: 0 0 0 90px;
+  width: 70%;
+}

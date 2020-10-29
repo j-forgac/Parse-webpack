@@ -1,73 +1,38 @@
 import {generateArticle} from "./components";
 
 const axios = require('axios');
+let articleCount = 20
 
-function runAxious () {
+async function runAxious() {
     console.log("axious");
-    axios.get('http://newsapi.org/v2/everything?q=bitcoin&from=2020-09-16&sortBy=publishedAt&apiKey=3b14d1d758fd4b3daf7a06628c65b704')
+    await axios.get('http://newsapi.org/v2/everything?q=bitcoin&sortBy=publishedAt&apiKey=3b14d1d758fd4b3daf7a06628c65b704')
         .then((res) => {
             console.log("axious.then");
             const data = res.data;
-            for (let value of data.articles) {
-                console.log(value.author);
+            console.log(data);
+            for (let i = 0; i < articleCount; i++){
+                clanky.push({title: data.articles[i].title, description:data.articles[i].description, imageUrl: data.articles[i].urlToImage });
             }
+
+
         })
         .catch((reason) => {
             console.log("axious.catch -*- reason:");
             console.log(reason);
         });
+    console.log("axious done");
 }
 
-const articles = [
-    {
-        title: "Článek 1",
-        description: "Lorem ipsum"
-    },
-    {
-        title: "Článek 2",
-        description: "Aliquam in lorem"
-    },
-    {
-        title: "Článek 3",
-        description: "Facilis est et"
-    },
-    {
-        title: "Článek 4",
-        description: "Praesent vitae arcu"
-    },
-    {
-        title: "Článek 5",
-        description: "Fusce tellus odio"
-    },
-    {
-        title: "Článek 6",
-        description: "Došel toaletní papír? Kupte BLESK!"
-    },
-    {
-        title: "Článek 7",
-        description: "Fusce tellus odio"
-    },
-    {
-        title: "Článek 8",
-        description: "Tvrdí Američtí vědci..."
-    },
-    {
-        title: "Článek 5",
-        description: "Fusce tellus odio"
-    },
-    {
-        title: "Článek 6",
-        description: "Aliquam in lorem"
-    }
-];
+let clanky = [];
 
-window.onload = function () {
-    runAxious();
+window.onload = async function () {
+    await runAxious();
     console.log("clanky vypis");
-    for (let x = 0; x < articles.length; x++) {
-        generateArticle(articles[x].title, articles[x].description);
+    for (let x = 0; x < clanky.length; x++) {
+        generateArticle(clanky[x].title, clanky[x].description, clanky[x].imageUrl);
     }
 }
+
 
 
 
