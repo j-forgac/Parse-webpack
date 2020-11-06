@@ -1,3 +1,4 @@
+import '../styles.scss';
 import {generateArticle} from "./components";
 
 const axios = require('axios');
